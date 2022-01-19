@@ -1,0 +1,93 @@
+body {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(-45deg, #00e68a, #ee7752, #e73c7e, #23a6d5, #23d5ab, #ff8533);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  margin: 2em;
+}
+
+.title {
+  font-family: sans serif;
+  font-size: 4rem;
+  margin-top:  0;
+}
+
+.ToDo {
+  padding: 1rem;
+  font-size: 1.4rem;
+  background-color: black;
+  color: white;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  border-radius: 5px;
+  border-color: white;
+  max-width: 15.5rem;
+}
+
+.close {
+  font-size: 2rem;
+  color: white;
+  float: right;
+  line-height: 23px;
+}
+
+.close:hover {
+  color: #ff5c33;
+  cursor: pointer;
+}
+
+.container {
+  background-color: hsl(24, 100%, 60%);
+  padding: 5rem;
+  border-radius: 10%;
+  border: 5px solid;
+  border-color: white;
+}
+
+.to-do-form {
+  display: flex;
+  padding-top: 20px;
+  width: 100%;
+}
+
+.form-control[type=text] {
+  width: 100%;
+  padding: 20px 30px 20px 30px;
+  margin: 8px 0px;
+  box-sizing: border-box;
+  border: solid;
+  border-color: white;
+  border-radius: 5px;
+  color: white;
+  background-color: black;
+}
+
+.button {
+  color: white;
+  background-color: black;
+  border: solid;
+  border-radius: 5px;
+  padding: 5px;
+  float: right;
+}
+
+.button:hover {
+  color: black;
+  background-color: white;
+}

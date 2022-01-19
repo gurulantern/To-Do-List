@@ -1,0 +1,91 @@
+class ToDo extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return(
+      <div className="ToDo">
+        <span>{this.props.value}</span>
+        <strong className='close' onClick={this.props.onClickClose}> &times; </strong>
+      </div>
+    );
+  };
+};
+
+class ToDoList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos: [
+        {value: 'Be the best you can be unless you are too tired'},
+        {value: 'Be honest'},
+        {value: 'Be kind'},
+        ]
+    };
+   this.addErrand = this.addErrand.bind(this);
+   this.deleteErrand = this.deleteErrand.bind(this);
+   this.handleChange = this.handleChange.bind(this);
+  }
+  
+  addErrand(event) {
+    event.preventDefault()
+    var todos = this.state.todos;
+    
+    todos.push({
+      value: this.state.inputValue
+    });
+    
+    this.setState({
+      todos: todos,
+      inputValue: ''
+    });
+    return false;
+  }
+  
+  handleChange(event) {
+    this.setState({
+      inputValue: event.target.value
+    });
+  }
+  
+  deleteErrand(index) {
+    this.state.todos.splice(index, 1);
+    
+    this.setState({
+      todos: this.state.todos
+    });
+  }
+  
+  render() {
+    var todos = this.state.todos.map(function(todo, index) {
+      return (
+      <ToDo
+        key={index}
+        value={todo.value}
+        onClickClose=
+        {this.deleteErrand.bind(this, index)}
+       /> );
+    }.bind(this));
+    
+    return (
+      <div className="container">
+        <h1 className="title">To Do List</h1>
+        {todos}
+        <form
+          className="to-do-form"
+          role="form"
+          onSubmit={this.addErrand}>
+          <div className="input">
+            <input type='text' value={this.state.inputValue}
+              onChange={this.handleChange}
+              className='form-control'
+              placeholder="What do you need to do?"
+              />
+            <button className="button">Add Todo</button>
+          </div>
+        </form>
+      </div>
+    );
+  };
+};
+ReactDOM.render(<ToDoList />, document.getElementById('main'));
